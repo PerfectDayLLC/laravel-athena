@@ -218,7 +218,7 @@ class Connection extends PostgresConnection
                 $queryParts = preg_split("/BETWEENLIMIT/i", $query);
                 preg_match_all('!\d+!', array_pop($queryParts), $matches);
                 // Calculating offset and limit for Athena
-                $perPage = ($matches[0][0] - 1);
+                $perPage = $matches[0][0];
 
                 // Only apply this limit if we have per page greater than 0.
                 // This prevent BETWEEN as WHERE clause to be treated like LIMIT & OFFSET, which occurs if we have
