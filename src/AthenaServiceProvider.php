@@ -5,7 +5,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AthenaServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap the application events.
      */

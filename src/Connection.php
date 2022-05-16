@@ -3,17 +3,17 @@
 namespace Bilaliqbalr\Athena;
 
 use Aws\S3\S3Client;
+use Bilaliqbalr\Athena\Query\Grammar as QueryGrammar;
+use Bilaliqbalr\Athena\Query\Processor;
+use Bilaliqbalr\Athena\Schema\Builder;
+use Bilaliqbalr\Athena\Schema\Grammar as SchemaGrammar;
 use Exception;
 use Goodby\CSV\Import\Standard\Interpreter;
 use Goodby\CSV\Import\Standard\Lexer;
 use Goodby\CSV\Import\Standard\LexerConfig;
 use Illuminate\Database\PostgresConnection;
-use Bilaliqbalr\Athena\Query\Grammar as QueryGrammar;
-use Bilaliqbalr\Athena\Query\Processor;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
-use Bilaliqbalr\Athena\Schema\Builder;
-use Bilaliqbalr\Athena\Schema\Grammar as SchemaGrammar;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use League\Flysystem\Filesystem;
 

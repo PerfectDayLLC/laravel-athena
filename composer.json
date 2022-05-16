@@ -1,21 +1,31 @@
 {
-    "name": "flemzord/laravel-athena",
-    "description": "Laravel athena query builder.",
+    "name": "perfectdayllc/laravel-athena",
+    "description": "Laravel Athena query builder",
+    "license": "MIT",
     "type": "library",
+    "authors": [
+        {
+            "name": "Dan Baddeley",
+            "email": "dan.baddeley@myshopmanager.com"
+        },
+        {
+            "name": "Matias Lauriti",
+            "email": "matias.lauriti@rockstarcoders.com"
+        }
+    ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "aws/aws-sdk-php": "^3.112",
-        "laravel/framework": "^7.0|^8.0",
+        "illuminate/database": "^5.8",
+        "illuminate/support": "^5.8",
         "league/flysystem-aws-s3-v3": "^1.0",
         "goodby/csv": "^1.3"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Bilal Iqbal",
-            "email": "bilaliqbalr@gmail.com"
-        }
-    ],
+    "require-dev": {
+        "mockery/mockery": "^1.4.4",
+        "orchestra/testbench": "^3.8",
+        "phpunit/phpunit": "^9.5"
+    },
     "autoload": {
         "psr-4": {
           "Bilaliqbalr\\Athena\\": "src/"
@@ -27,5 +37,10 @@
                 "Bilaliqbalr\\Athena\\AthenaServiceProvider"
             ]
         }
-    }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
