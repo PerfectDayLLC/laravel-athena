@@ -7,14 +7,7 @@ use Illuminate\Database\Query\Builder;
 
 class Grammar extends MySqlGrammar
 {
-    /**
-     * Compile the "limit" portions of the query.
-     *
-     * @param  Builder  $query
-     * @param  int  $limit
-     * @return string
-     */
-    protected function compileLimit(Builder $query, $limit)
+    protected function compileLimit(Builder $query, $limit): string
     {
         // Only apply BETWEEN clause, if missing OFFSET, otherwise use presto way to LIMIT records
         if (is_int($query->offset)) {
@@ -26,14 +19,7 @@ class Grammar extends MySqlGrammar
         return parent::compileLimit($query, $limit);
     }
 
-    /**
-     * Compile the "offset" portions of the query.
-     *
-     * @param  \Illuminate\Database\Query\Builder  $query
-     * @param  int  $offset
-     * @return string
-     */
-    protected function compileOffset(Builder $query, $offset)
+    protected function compileOffset(Builder $query, $offset): string
     {
         return 'AND '.(int) $offset;
     }
