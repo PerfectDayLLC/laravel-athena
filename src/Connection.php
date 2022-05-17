@@ -15,6 +15,7 @@ use Illuminate\Support\Arr;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use League\Flysystem\Filesystem;
 use League\Flysystem\FilesystemInterface;
+use PerfectDayLlc\Athena\Query\Grammar;
 
 class Connection extends PostgresConnection
 {
@@ -75,6 +76,11 @@ class Connection extends PostgresConnection
     protected function getDefaultSchemaGrammar()
     {
         return new MySqlGrammar;
+    }
+
+    public function getDefaultQueryGrammar()
+    {
+        return $this->withTablePrefix(new Grammar);
     }
 
     /**
