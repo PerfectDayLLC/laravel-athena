@@ -1,11 +1,7 @@
 <?php
-namespace Bilaliqbalr\Athena\Schema;
+
+namespace PerfectDayLlc\Athena\Schema;
 
 use Illuminate\Database\Schema\Grammars\MySqlGrammar;
-use Illuminate\Support\Fluent;
-use Bilaliqbalr\Athena\Connection;
 
-class Grammar extends MySqlGrammar
-{
-    
-}
+class Grammar extends MySqlGrammar { }

@@ -1,9 +1,7 @@
 <?php
-namespace Bilaliqbalr\Athena\Eloquent;
+
+namespace PerfectDayLlc\Athena\Eloquent;
 
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
-class Collection extends EloquentCollection {
-
-
-}
+class Collection extends EloquentCollection { }

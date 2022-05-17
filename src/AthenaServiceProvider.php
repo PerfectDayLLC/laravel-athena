@@ -1,35 +1,25 @@
 <?php
-namespace Bilaliqbalr\Athena;
+
+namespace PerfectDayLlc\Athena;
 
 use Illuminate\Support\ServiceProvider;
 
 class AthenaServiceProvider extends ServiceProvider
 {
+    public function register()
+    {
+        $this->app->resolving('db', function ($db) {
+            $db->extend('athena', fn ($config) => new Connection($config));
+        });
+    }
 
-    /**
-     * Bootstrap the application events.
-     */
     public function boot()
     {
         $this->publishes([
             __DIR__.'/../config/athena.php' => config_path('athena.php'),
-        ]);
+        ], 'laravel-athena-config');
 
         Model::setConnectionResolver($this->app['db']);
-
         Model::setEventDispatcher($this->app['events']);
     }
-
-    /**
-     * Register the service provider.
-     */
-    public function register()
-    {
-        $this->app->resolving('db', function ($db) {
-            $db->extend('athena', function ($config) {
-                return new Connection($config);
-            });
-        });
-    }
-
 }

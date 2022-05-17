@@ -1,10 +1,7 @@
 <?php
-namespace Bilaliqbalr\Athena\Schema;
+
+namespace PerfectDayLlc\Athena\Schema;
 
 use Illuminate\Database\Schema\Blueprint as BaseBlueprint;
-use Bilaliqbalr\Athena\Connection;
 
-class Blueprint extends BaseBlueprint
-{
-
-}
+class Blueprint extends BaseBlueprint { }

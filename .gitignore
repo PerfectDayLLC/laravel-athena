@@ -1,5 +1,8 @@
-/vendor
 /.idea
-composer.lock
+/vendor
+
+.phpunit.result.cache
 .DS_Store
+composer.lock
+docker-compose.override.yaml
 Thumbs.db

@@ -1,5 +1,6 @@
 <?php
-namespace Bilaliqbalr\Athena\Query;
+
+namespace PerfectDayLlc\Athena\Query;
 
 use Illuminate\Database\Query\Grammars\MySqlGrammar;
 use Illuminate\Database\Query\Builder;
@@ -20,9 +21,9 @@ class Grammar extends MySqlGrammar
             // using custom BETWEENLIMIT clause only to detect if it is limit to prevent conflict with BETWEEN.
             // Handling it in Connection.php
             return 'BETWEENLIMIT '.(int) $limit;
-        } else {
-            return parent::compileLimit($query, $limit);
         }
+
+        return parent::compileLimit($query, $limit);
     }
 
     /**
