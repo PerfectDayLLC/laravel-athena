@@ -1,7 +1,7 @@
 <?php
 
-namespace Bilaliqbalr\Athena\Query;
+namespace PerfectDayLlc\Athena\Query;
 
-class Builder extends \Illuminate\Database\Query\Builder {
+use Illuminate\Database\Query\Builder as BaseBuilder;
 
-}
+class Builder extends BaseBuilder { }

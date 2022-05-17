@@ -1,5 +1,6 @@
 <?php
-namespace Bilaliqbalr\Athena;
+
+namespace PerfectDayLlc\Athena;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
 

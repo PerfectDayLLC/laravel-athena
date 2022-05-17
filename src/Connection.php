@@ -1,12 +1,9 @@
 <?php
 
-namespace Bilaliqbalr\Athena;
+namespace PerfectDayLlc\Athena;
 
+use Aws\Athena\AthenaClient;
 use Aws\S3\S3Client;
-use Bilaliqbalr\Athena\Query\Grammar as QueryGrammar;
-use Bilaliqbalr\Athena\Query\Processor;
-use Bilaliqbalr\Athena\Schema\Builder;
-use Bilaliqbalr\Athena\Schema\Grammar as SchemaGrammar;
 use Exception;
 use Goodby\CSV\Import\Standard\Interpreter;
 use Goodby\CSV\Import\Standard\Lexer;
@@ -16,25 +13,21 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use League\Flysystem\Filesystem;
+use PerfectDayLlc\Athena\Query\Grammar as QueryGrammar;
+use PerfectDayLlc\Athena\Query\Processor;
+use PerfectDayLlc\Athena\Schema\Builder;
+use PerfectDayLlc\Athena\Schema\Grammar as SchemaGrammar;
 
 class Connection extends PostgresConnection
 {
+    protected ?AthenaClient $athenaClient = null;
 
-    /**
-     * @var \Aws\Athena\AthenaClient|null
-     */
-    protected $athenaClient = null;
-
-    /**
-     * @var \Aws\S3\S3Client
-     */
-    protected $s3Client = null;
+    protected ?S3Client $s3Client = null;
 
     /**
      * Local file path downloaded from S3 in Athena response
-     * @var
      */
-    private $localFilePath = null;
+    private ?string $localFilePath = null;
 
     public function __construct($config)
     {

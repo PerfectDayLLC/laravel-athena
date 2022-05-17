@@ -1,11 +1,7 @@
 <?php
-namespace Bilaliqbalr\Athena\Schema;
 
-use Bilaliqbalr\Athena\Exceptions\CreateTableWithoutColumns;
-use Bilaliqbalr\Athena\Exceptions\TableWithNameAlreadyExists;
-use Bilaliqbalr\Athena\Query\Entities\IndexCollection;
+namespace PerfectDayLlc\Athena\Schema;
 
-class Builder extends \Illuminate\Database\Schema\Builder
-{
+use Illuminate\Database\Schema\Builder as BaseBuilder;
 
-}
+class Builder extends BaseBuilder { }
