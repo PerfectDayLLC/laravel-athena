@@ -31,7 +31,7 @@ class Connection extends PostgresConnection
             null,
             $this->config['database'],
             $this->config['prefix'] ?? '',
-            config('athena')
+            config('perfectdayllc.athena')
         );
 
         $this->prepareAthenaClient();
